@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+<div class="icon-bar three-up" id="navbar">
+    <a href="control.html" class="item">
+        <img src="img/icons/control_panel.png">
+        <label>Control Panel</label>
+    </a>
+    <a href="index.html" class="item">
+        <img src="img/icons/dashboard.png">
+        <label>Dashboard</label>
+    </a>
+    <a href="schedule.html" class="item">
+        <img src="img/icons/schedule.png">
+        <label>Schedule</label>
+    </a>
+</div>
+      
+<div class="row">
+<div class="small-12 panel">
+    
+<div class="row">
+    <div class="small-12 medium-12 large-12 columns">
+       <h3>Weekly Water Usage</h3>
+        <hr class="no-margin">
+        <div class="small-12 medium-2 large-2 columns">
+            <img src="img/icons/small32%20copy.png">
+            <h1 class="title-inline huge text-center">42</h1>
+            <p>Liters of water saved this week</p>
+        </div>
+        <div class="small-12 medium-9 large-9 columns">
+            <canvas id="water-canvas" height="150" width="600"></canvas>
+        </div>
+        <div class="small-12 medium-1 large-1 columns"></div>
+    </div>      
+</div>
+<br>
+<div class="row">
+    <div class="small-12 medium-12 large-12 columns">
+       <h3>Weekly Heat Usage</h3>
+        <hr class="no-margin">
+        <div class="small-12 medium-2 large-2 columns">
+            <img src="img/icons/heat.png">
+            <h1 class="title-inline huge text-center">12</h1>
+            <p>Kilowatts saved this week</p>
+        </div>
+        <div class="small-12 medium-9 large-9 columns">
+            <canvas id="heat-canvas" height="150" width="600"></canvas>
+        </div>
+        <div class="small-12 medium-1 large-1 columns"></div>
+    </div>     
+</div>
+<br>
+<div class="row">
+    <div class="small-12 medium-6 large-6 columns text-center">
+        <h4>Energy Breakdown</h4>
+        <hr class="zero-margin">
+        <div id="canvas-holder">
+			<canvas id="breakdown-chart" width="250" height="250"/>
+		</div>
+    </div>
+    <div class="small-12 medium-6 large-6 columns text-center">
+        <h4>Money Saved</h4>
+        <hr class="zero-margin">
+        <h1 class="super-huge title-inline">$17</h1>
+        <h3>this Month</h3>
+    </div>
+</div>
+        
+</div>
+</div>
+
+<div id="footer"> <h4 class="subheader text-center"><small>The Smart Bathroom by Alice Borie, Ian Go, and Aditi Sarkar</small> </h4></div>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+    	<script>
+		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var waterLineChartData = {
+			labels : ["11/11-11/17","11/18-11/22","11/23-11/29","11/30-12/6","This Week"],
+			datasets : [
+				{
+					label: "Water Usage",
+					fillColor : "rgba(151,187,205,0.2)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [120,117,150,50,randomScalingFactor()]
+				}
+			]
+
+		}
+		var heatLineChartData = {
+			labels : ["11/11-11/17","11/18-11/22","11/23-11/29","11/30-12/6","This Week"],
+			datasets : [
+				{
+					label: "Heat Usage",
+					fillColor : "rgba(237,60,62,0.2)",
+					strokeColor : "rgba(237,60,62,1)",
+					pointColor : "rgba(237,60,62,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(151,187,205,1)",
+					data : [20.1,23.2,14.5,25.7,randomScalingFactor()]
+				}
+			]
+
+		}
+        var doughnutData = [
+				{
+					value: 64,
+					color:"#F7464A",
+					highlight: "#FF5A5E",
+					label: "Heat"
+				},
+				{
+					value: 8,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Toilet"
+				},
+				{
+					value: 20,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Shower"
+				},
+				{
+					value: 8,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "Faucet"
+				}
+			];
+
+	window.onload = function(){
+		var ctx = document.getElementById("water-canvas").getContext("2d");
+		window.myLine = new Chart(ctx).Line(waterLineChartData, {
+			responsive: true,
+            tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> Liters"
+		});
+        var cty = document.getElementById("heat-canvas").getContext("2d");
+		window.myLine = new Chart(cty).Line(heatLineChartData, {
+			responsive: true,
+            tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> kW"
+		});
+        var ctz = document.getElementById("breakdown-chart").getContext("2d");
+				window.myDoughnut = new Chart(ctz).Doughnut(doughnutData, {responsive : false, tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> %"});
+	}
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+
+#navbar label{
+    padding-top: .25em;
+}
+
+body{
+    background-image: url("../img/squairy_light_@2X.png");
+}
+
+.title-inline{
+    display: inline;
+    vertical-align: middle;
+}
+
+.huge{
+    font-size:4.0rem;
+}
+
+.super-huge{
+    font-size:6.0rem;
+}
+
+.underline{
+    text-decoration: underline
+}
+
+.no-margin{
+    margin: 0;
+    margin-bottom: 1.1875rem;
+}
