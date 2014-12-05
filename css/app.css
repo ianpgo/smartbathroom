@@ -28,3 +28,15 @@ body{
     margin: 0;
     margin-bottom: 1.1875rem;
 }
+
+.padding-less{
+    margin-right:-5px; 
+}
+
+.margin-left{
+    margin-left: 10px;
+}
+
+.margin-top{
+    margin-top:20px;
+}

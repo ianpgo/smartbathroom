@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
@@ -24,11 +25,113 @@
         <label>Schedule</label>
     </a>
 </div>
+      
+<div class="row panel radius ">
+    <div class="small-12 medium-6 large-6 columns padding-less">
+        <img src="img/icons/alarm49.png"><h3 class="title-inline margin-left">Wake up Mode</h3>
+        <hr><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                      <label>
+                        <input type="text" id="basicExample" placeholder="9:00am" />
+                      </label>
+                    </div>
+                    <div class="small-9 columns"><h3>Wake up Time</h3></div>
+                </div><hr><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch3" type="checkbox">
+                          <label for="switch3"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Pre-heat Shower</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch4" type="checkbox">
+                          <label for="switch4"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Heat Tiles</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch5" type="checkbox">
+                          <label for="switch5"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Heat Towels</h3></div>
+                </div>
+    </div>
+    <div class="small-12 medium-6 large-6 columns">
+        <img src="img/icons/wiping16.png"><h3 class="title-inline margin-left">Schedule Cleaning</h3>
+        <hr>
+                <div class="row">
+                    <div class="small-6 columns">
+                      <label>
+                        <select>
+                          <option value="husker">Daily</option>
+                          <option value="starbuck">3 times a week</option>
+                          <option value="hotdog">Weekly</option>
+                          <option value="apollo">Every 2 weeks</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="small-6 columns"><h3>Roomba</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-6 columns">
+                      <label>
+                        <select>
+                          <option value="husker">Daily</option>
+                          <option value="starbuck">3 times a week</option>
+                          <option value="hotdog">Weekly</option>
+                          <option value="apollo">Every 2 weeks</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="small-6 columns"><h3>Shower</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-6 columns">
+                      <label>
+                        <select>
+                          <option value="husker">Daily</option>
+                          <option value="starbuck">3 times a week</option>
+                          <option value="hotdog">Weekly</option>
+                          <option value="apollo">Every 2 weeks</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="small-6 columns"><h3>Toilet</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-6 columns">
+                      <label>
+                        <select>
+                          <option value="husker">Daily</option>
+                          <option value="starbuck">3 times a week</option>
+                          <option value="hotdog">Weekly</option>
+                          <option value="apollo">Every 2 weeks</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div class="small-6 columns"><h3>Faucet</h3></div>
+                </div>
+    </div>
+</div>
 
 <div id="footer"> <h4 class="subheader text-center"><small>The Smart Bathroom by Alice Borie, Ian Go, and Aditi Sarkar</small> </h4></div>
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    <script>
+        $('#basicExample').timepicker({ 'scrollDefault': 'now' });  
+    </script>
 
   </body>
 </html>

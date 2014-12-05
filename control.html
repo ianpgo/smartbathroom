@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/style.css"/>
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
@@ -25,10 +26,124 @@
     </a>
 </div>
 
+<div class="row">
+    <div class="small-12">
+        <div class="row">
+            <div class="small-12 medium-8 large-8 column panel radius padding-less">
+            <div class ="row space">
+                <div class="small-6 medium-6 large 6 column">
+                    <div class="text-center"><img src="img/icons/shower5.png"><h3 class="title-inline margin-left">Shower Temp&deg;F</h3></div>
+                    <div class="row">
+                      <div class="small-9 medium-9 columns">
+                        <div class="range-slider round" data-slider data-options="start: 80; end: 120; display_selector: #sliderOutput3;">
+                          <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                          <span class="range-slider-active-segment"></span>
+                        </div>
+                      </div>
+                      <div class="small-2 medium-2 columns">
+                        <h2><span id="sliderOutput3" class="title-inline"></span></h2>
+                      </div>
+                      <div class="small-1 medium-1 columns"></div>
+                    </div>
+                </div>
+                <div class="small-6 medium-6 large 6 column text-center">
+                    <h3>Clean Roomba</h3>
+                    <a id="submitButton" href="#" class="progress-button">ON</a>
+                </div> 
+            </div>
+            <hr>
+            <div class ="row space">
+                <div class="small-6 medium-6 large 6 column">
+                <div class="text-center"><img src="img/icons/towel4.png"><h3 class="title-inline margin-left">Towel Rack Temp</h3></div>
+                    <ul class="round stack-for-small button-group text-center margin-top">
+                      <li><a href="#" class="small secondary button">Low</a></li>
+                        <li><a href="#" class="small secondary button">Medium</a></li>
+                      <li><a href="#" class="small secondary button">High</a></li>
+                    </ul>
+                </div>
+                <div class="small-6 medium-6 large 6 column text-center">
+                    <h3>Clean Toilet</h3>
+                    <a id="actionButton" href="#" class="progress-button">ON</a>
+                </div> 
+            </div>
+            <hr>
+            <div class ="row space">
+                <div class="small-6 medium-6 large 6 column">
+                    <div class="text-center"><img src="img/icons/tiles.png"><h3 class="title-inline margin-left">Floor Tile Temp</h3></div>
+                    <ul class="round stack-for-small button-group text-center margin-top">
+                      <li><a href="#" class="small secondary button">Low</a></li>
+                        <li><a href="#" class="small secondary button">Medium</a></li>
+                      <li><a href="#" class="small secondary button">High</a></li>
+                    </ul>
+                </div>
+                <div class="small-6 medium-6 large 6 column text-center">
+                    <h3>Clean Shower</h3>
+                    <a id="showerButton" href="#" class="progress-button">ON</a>
+                </div> 
+            </div>
+            </div>
+            <div class="small-12 medium-4 large-4 column panel radius padding-less">
+                <h2>Smart Mirror</h2><hr>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch1" type="checkbox">
+                          <label for="switch1"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Weather</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch2" type="checkbox">
+                          <label for="switch2"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Time</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch3" type="checkbox">
+                          <label for="switch3"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Calendar</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch4" type="checkbox">
+                          <label for="switch4"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>Notifications</h3></div>
+                </div><br>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <div class="switch radius">
+                          <input id="switch5" type="checkbox">
+                          <label for="switch5"></label>
+                        </div> 
+                    </div>
+                    <div class="small-9 columns"><h3>To-do List</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="footer"> <h4 class="subheader text-center"><small>The Smart Bathroom by Alice Borie, Ian Go, and Aditi Sarkar</small> </h4></div>
     
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/foundation/foundation.slider.js"></script>
+    <script src="js/script.js"></script>
+      
+  <script>
+    $(document).foundation();
+  </script>
 
   </body>
 </html>
